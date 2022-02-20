@@ -1,0 +1,48 @@
+<header class="sticky-lg-top" th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes">
+    <meta name="description" content="A layout example that shows off a responsive product landing page.">
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+
+    <div class="text-center bg-dark text-white p-2 m-3" style="opacity: .7;">
+        <div class="row">
+            <div class="col-md-3">
+                <span>
+                    <a class="btn btn-outline-light" th:href="@{/}">Quiz</a>
+                </span>
+            </div>
+            <div class="col-md-9 justify-content-end" style="text-align: right;">
+                <span sec:authorize="isAuthenticated()">
+                    <a class="btn btn-outline-light" th:href="@{/addBook}">Add Book</a>
+                </span>
+                <span sec:authorize="isAuthenticated()">
+                    <a class="btn btn-outline-light" th:href="@{/showBooks}">Show Books</a>
+                </span>
+                <span sec:authorize="isAuthenticated()">
+                    <a class="btn btn-outline-light" th:href="@{/addRequestedBook}">Request for Book</a>
+                </span>
+                <span sec:authorize="isAuthenticated()">
+                    <a class="btn btn-outline-light" th:href="@{/showRequestedBooks}">Show Requested Books</a>
+                </span>
+
+                <span sec:authorize="isAuthenticated()">
+                    <a class="btn btn-outline-light" th:href="@{/addPost}">Add Blog Post</a>
+                </span>
+
+                <span sec:authorize="isAuthenticated()">
+                    <a class="btn btn-outline-light" th:href="@{/logout}">Logout</a>
+                </span>
+                <span sec:authorize="!isAuthenticated()">
+                    <a class="btn btn-outline-light" th:href="@{/login}">Login</a>
+                </span>
+                <span sec:authorize="!isAuthenticated()">
+                    <a class="btn btn-outline-light" th:href="@{/registration}">Registration</a>
+                </span>
+            </div>
+        </div>
+
+
+
+    </div>
+</header>

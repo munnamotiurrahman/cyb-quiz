@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request for a Book</title>
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+
+    <div class="container">
+        <div class="card mt-5">
+            <div class="card-body">
+                <form class="m-auto w-50" style="text-align: center;" th:action="@{addRequestedBook}" method="post">
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Book Name: *</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" name="name" required>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Author Name:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" name="writterName">
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Enter Language:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" name="language">
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Enter Type:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" name="type">
+                        </div>
+                    </div>
+                    <br />
+
+                    <div>
+                        <input class="btn btn-primary" type="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>

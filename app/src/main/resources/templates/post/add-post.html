@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog Post</title>
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+
+    <div class="card container p-2 mt-5">
+        <form class="w-50 m-auto" style="text-align: center;" th:action="@{addPost}" method="post"
+            enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Title</label>
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" name="title" required>
+                </div>
+            </div>
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Enter your Experience:</label>
+                </div>
+                <div class="col-md-6">
+                    <textarea name="body" id="" cols="40" rows="10"></textarea>
+                </div>
+            </div>
+            <br />
+
+            <div>
+                <input class="btn btn-primary" type="submit">
+            </div>
+        </form>
+    </div>
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>

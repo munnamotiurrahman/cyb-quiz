@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book details</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Book Details</title>
+    </head>
+
+    <body>
+        <div th:replace="fragments/header :: header"></div>
+
+        <div class="container text-center">
+            <div class="card mt-5">
+                <div style="text-align: center;" class="h3">
+                    <br />
+                    <h2 class="text-primary" th:text="${bookName}"></h2><br />
+                    <div th:text="${writerName}"></div><br />
+                    <div th:text="${language}"></div><br />
+                    <div th:text="${available}"></div><br />
+                </div>
+                <form th:action="@{shareBook}" method="post">
+                    <input hidden type="text" name="id" th:value="${id}">
+                    <input class="btn btn-primary" type="submit" value="shareBook">
+                </form>
+                <br />
+            </div>
+        </div>
+        <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
+
+    </body>
+
+    </html>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Book</title>
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+
+    <div style="text-align: center;">
+        <form hidden th:action="@{shareBook}" method="post">
+            <div>
+                <label>Enter id</label>
+                <input type="text" name="id">
+            </div>
+            <br />
+            <div>
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </div>
+        </form>
+
+        <br />
+
+        <div>
+            <div th:text="${message}"></div>
+        </div>
+        <br />
+
+        <div th:if="${id}">
+            <div>
+                <a class="btn btn-info"
+                    th:href="'https://www.facebook.com/sharer/sharer.php?u=www.seproject.com' + ${bookDetailsURL}+'&t=Hello'"
+                    onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                    target="_blank" title="Share on Facebook">Share book on facebook
+                </a>
+            </div>
+            <div>
+                <a class="btn btn-info mt-3" target="_blank"
+                    th:href="'https://twitter.com/intent/tweet?text=www.seprojec.com' + ${bookDetailsURL}">Share on
+                    Twiter</a>
+            </div>
+
+            <div>
+                <a target="_blank" class="btn btn-info mt-3"
+                    th:href="'https://wa.me/?text=Awesome%20Book!%5Cn%20www.seproject.com' + ${bookDetailsURL}">Share
+                    on Whatsapp</a>
+            </div>
+            <div>
+                <a target="_blank" class="btn btn-info mt-3"
+                    href="https://mail.google.com/mail/u/0/?view=cm&to&su=Awesome+Book!&body=https%3A%2F%2Fwww.seprojec.com%0A&bcc&cc&fs=1&tf=1">Share
+                    by Gmail</a>
+
+            </div>
+
+
+            <br />
+            <div>
+                <a class="btn btn-primary" target="_blank" th:href="${bookDetailsURL}">View book</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>

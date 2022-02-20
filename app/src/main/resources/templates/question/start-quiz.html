@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Questions</title>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container card">
+        <div class="card-body">
+            <p id="demo"></p>
+
+            <div>
+                <span th:text=${question.question}></span>
+            </div>
+
+            <br />
+
+            <form method="post" th:action="@{/startQuiz}">
+                <input hidden type="text" name="questionNo" th:value="${questionNo}">
+
+                <div>
+                    <input type="radio" id="html" name="selectedOption" value="1">
+                    <span th:text="${question.option1}"></span>
+                </div>
+                <div>
+                    <input type="radio" id="html" name="selectedOption" value="2">
+                    <span th:text="${question.option2}"></span>
+                </div>
+                <div>
+                    <input type="radio" id="html" name="selectedOption" value="3">
+                    <span th:text="${question.option3}"></span>
+                </div>
+                <div>
+                    <input type="radio" id="html" name="selectedOption" value="4">
+                    <span th:text="${question.option4}"></span>
+                </div>
+                <div>
+                    <input class="btn btn-primary m-1 px-2 py-0" type="submit" value="Submit">
+                </div>
+            </form>
+            <!-- <form method="post" th:action="@{/startQuiz}">
+                <input hidden type="text" name="questionNo" th:value="${questionNo}">
+                  <input type="radio" id="html" name="fav_language" value="HTML">
+                <input class="btn btn-primary m-1 px-2 py-0" type="submit" th:value="${question.option2}">
+            </form>
+            <form method="post" th:action="@{/startQuiz}">
+                <input hidden type="text" name="questionNo" th:value="${questionNo}">
+                <input hidden type="text" name="selectedOption" th:value="3">
+                <input class="btn btn-primary m-1 px-2 py-0" type="submit" th:value="${question.option3}">
+            </form>
+            <form method="post" th:action="@{/startQuiz}">
+                <input hidden type="text" name="questionNo" th:value="${questionNo}">
+                <input hidden type="text" name="selectedOption" th:value="4">
+                <input class="btn btn-primary m-1 px-2 py-0" type="submit" th:value="${question.option4}">
+            </form> -->
+
+
+            <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
+            <script>
+                setInterval(myTimer, 1000);
+
+                function myTimer() {
+                    const d = new Date();
+                    document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+                }
+            </script>
+
+</body>
+
+</html>

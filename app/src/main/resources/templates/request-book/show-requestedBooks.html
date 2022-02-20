@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Requested Books</title>
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+
+    <div class="container mt-5">
+        <div class="card-body">
+            <table class="table table-striped" border="1">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Author</th>
+                        <th>Is Available?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <th:block th:each="book,iterationStatus : ${requestedBooks}">
+                        <tr>
+                            <td th:text=${iterationStatus.count}></td>
+                            <td th:text=${book.name}></td>
+                            <td th:text=${book.author}></td>
+                            <td>
+                                <div th:if="${book.isAvailable}">Available</div>
+                                <div th:unless="${book.isAvailable}">
+                                    Not Available
+                                    <form th:action="@{makeAvailable}" method="post">
+                                        <input hidden type="text" name="id" th:value="${book.id}">
+                                        <input class="btn btn-primary mt-1" type="submit" value="Make available">
+                                    </form>
+                                </div>
+                            </td>
+        </div>
+        </td>
+        </tr>
+        </th:block>
+        </tbody>
+
+        </table>
+    </div>
+    </div>
+
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>

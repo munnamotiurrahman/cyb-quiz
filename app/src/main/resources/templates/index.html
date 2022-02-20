@@ -1,0 +1,58 @@
+<html>
+
+<body style="text-align: center;">
+	<div th:replace="fragments/header :: header"></div>
+
+	<div class="card container mt-5">
+		<div class="card-body">
+			<h1>Welcome to Quiz Project</h1>
+			<h1 th:text="${name}" class="text-info"></h1>
+			<br />
+			<br />
+
+			<span sec:authorize="isAuthenticated()">
+				<a class="btn btn-primary" th:href="@{/addBook}">Add Book</a>
+			</span>
+			<span sec:authorize="isAuthenticated()">
+				<a class="btn btn-primary" th:href="@{/showBooks}">Show Books</a>
+			</span>
+			<span sec:authorize="isAuthenticated()">
+				<a class="btn btn-primary" th:href="@{/addRequestedBook}">Request for Book</a>
+			</span>
+			<span sec:authorize="isAuthenticated()">
+				<a class="btn btn-primary" th:href="@{/addPost}">Add Blog Post</a>
+			</span>
+			<span sec:authorize="isAuthenticated()">
+				<a class="btn btn-primary" th:href="@{/showRequestedBooks}">Show Requested Books</a>
+			</span>
+			<br /><br />
+			<div>
+				<span sec:authorize="isAuthenticated()">
+					<a class="btn btn-primary" th:href="@{/addQuestion}">Add Question</a>
+				</span>
+
+				<span sec:authorize="isAuthenticated()">
+					<a class="btn btn-primary" th:href="@{/showQuestions}">Show Question</a>
+				</span>
+				<span sec:authorize="isAuthenticated()">
+					<a class="btn btn-primary" th:href="@{/startQuiz}">Start Quiz</a>
+				</span>
+			</div>
+
+
+			<br />
+			<br />
+			<br />
+
+			<div>
+				<a class="btn btn-danger" th:href="@{/logout}">Logout</a>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Question</title>
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+
+    <div class="container">
+        <div class="card mt-5">
+            <div class="card-body">
+                <form class="m-auto w-50" style="text-align: center;" th:action="@{addQuestion}" method="post">
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Question</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" name="question" required>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Option A</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" name="option1">
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Option B</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" name="option2">
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Option C</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" name="option3">
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Option D</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" name="option4">
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Correct Option</label>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="correctOption" id="">
+                                <option value="1">Option A</option>
+                                <option value="2">Option B</option>
+                                <option value="3">Option C</option>
+                                <option value="4">Option D</option>
+                            </select>
+                            <!-- <input class="form-control" type="number" name="correctOption"> -->
+                        </div>
+                    </div>
+                    <br />
+
+                    <div>
+                        <input class="btn btn-primary" type="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>

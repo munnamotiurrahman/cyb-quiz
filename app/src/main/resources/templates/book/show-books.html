@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Books</title>
+    <script>
+        
+    </script>
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container card">
+        <div class="card-body">
+            <table class="table table-striped" border="1">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Author</th>
+                        <th>View Details</th>
+                        <th>Share</th>
+                        <th>Cart Option</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <th:block th:each="book,iterationStatus : ${books}">
+                        <tr>
+                            <td th:text=${iterationStatus.count}></td>
+                            <td th:text=${book.name}></td>
+                            <td th:text=${book.author}></td>
+                            <td>
+                                <a class="btn btn-primary" th:href="'/bookDetails/'+${book.id}">View
+                                    Details</a>
+                            </td>
+                            <td>
+                                <form th:action="@{shareBook}" method="post">
+                                    <input hidden type="text" name="id" th:value="${book.id}">
+                                    <input class="btn btn-primary" type="submit" value="shareBook">
+                                </form>
+                            </td>
+                            <td>
+                              <form th:action="@{addToCart}" method="post">
+                                <input hidden type="text" name="book_id" th:value="${book.id}">
+                                <input class="btn btn-primary" type="submit" value="Add to Cart">
+                              </form>
+                            </td>
+                        </tr>
+                    </th:block>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>

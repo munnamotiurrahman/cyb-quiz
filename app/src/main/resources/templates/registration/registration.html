@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+
+    <div class="container">
+        <div class="card mt-5">
+            <div class="card-body">
+                <div style="text-align: center;" class="mt-5">
+                    <form class="w-50 m-auto" th:action="@{/registration}" method="post">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Enter First Name:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" name="firstName" th:value="${firstName}">
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Enter Last Name: </label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" name="lastName" th:value="${lastName}">
+                            </div>
+                        </div><br />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Enter Email:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input required class="form-control" type="email" name="email" th:value="${email}">
+                            </div>
+                        </div>
+                        <div class="text-danger text-center" th:if="${emailError!=null}" th:text="${emailError}"></div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Enter Password:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input required class="form-control" type="password" name="password">
+                            </div>
+                        </div><br />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Confirm Password:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input required class="form-control" type="password" name="confirmPassword">
+                            </div>
+                        </div><br />
+                        <div class="text-danger" th:if="${confirmPasswordError!=null}"
+                            th:text="${confirmPasswordError}"></div>
+                        <div>
+                            <input class="btn btn-primary" type="submit" value="Registration">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Questions</title>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container card">
+        <div class="card-body">
+
+            <div th:each="question,iterationStatus : ${questions}">
+                <div>
+                    <div class="h3">
+                        <span th:text=${iterationStatus.count}></span>
+                        <span>.</span>
+                        <span th:text=${question.question}></span>
+                    </div>
+                    <div class="m-3">
+                        <div>
+                            <span>A. </span>
+                            <span th:text=${question.option1}></span>
+                        </div>
+                        <div>
+                            <span>B. </span>
+                            <span th:text=${question.option2}></span>
+                        </div>
+                        <div>
+                            <span>C. </span>
+                            <span th:text=${question.option3}></span>
+                        </div>
+                        <div>
+                            <span>D. </span>
+                            <span th:text=${question.option4}></span>
+                        </div>
+
+                        <div>
+                            <a class="btn btn-primary m-2" th:href="@{'/editQuestion/' + ${question.id}}">Edit
+                                Question</a>
+                            <a class="btn btn-primary m-2" th:href="@{'/deleteQuestion/' + ${question.id}}">Delete
+                                Question</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>
